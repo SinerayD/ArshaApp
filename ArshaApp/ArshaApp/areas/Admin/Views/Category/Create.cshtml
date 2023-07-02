@@ -1,0 +1,15 @@
+﻿@model ArshaApp.Core.Models.Category
+
+<div class="container">
+    <form asp-controller="Category" asp-action="Create" method="post">
+        <div class="form-group">
+            <label for="Name">Category Name</label>
+            <span class="alert text-danger" asp-validation-for="Name"></span>
+            <input type="text" class="form-control" placeholder="Type name" asp-for="Name">
+        </div>
+        @Html.AntiForgeryToken()
+
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
+

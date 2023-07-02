@@ -1,0 +1,29 @@
+﻿<div class="container">
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.Id</th>
+                    <td>@item.Name</td>
+                    <td><a asp-controller="Category" asp-action="Update" asp-route-id="@item.Id"><i class="fas fa-edit text text-primary"></i></a></td>
+                    <td><a onclick="if(!confirm('Delete selected item?')){return false;}" asp-controller="Category" asp-action="Delete" asp-route-id="@item.Id" class="text-danger"><i class="fas fa-trash"></i></a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <a asp-controller="Category" asp-action="Create" style="display: block; text-decoration: none; color: white; width: 100%; height: 100%">
+            <div style="width: 100%;" class="btn btn-outline-success">Category yarat</div>
+        </a>
+    </div>
+</div>
+
